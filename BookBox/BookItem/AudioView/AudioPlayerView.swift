@@ -26,13 +26,7 @@ struct AudioPlayerView: View {
             
             //  Speed view button
             Button("Speed x\(playbackSpeed)") {
-                guard isPlaying else { return }
-                if playbackSpeed < kMaxPlaybackSpeed {
-                    playbackSpeed += 1
-                } else {
-                    playbackSpeed = 1
-                }
-
+                playbackSpeed = playbackSpeed < kMaxPlaybackSpeed ? playbackSpeed + 1 : 1
                 playBackSpeed(rate: Float(playbackSpeed))
             }
             .foregroundStyle(.black)
@@ -96,8 +90,9 @@ struct AudioPlayerView: View {
     }
     
     private func playBackSpeed(rate: Float) {
-        audioPlayer?.play()
         audioPlayer?.rate = rate
+        guard isPlaying else { return }
+        audioPlayer?.play()
     }
     
     private func timeString(time: TimeInterval) -> String {

@@ -100,7 +100,7 @@
 		56AB18B32C63A24200F1A12B /* BookBox */ = {
 			isa = PBXGroup;
 			children = (
-				56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */,
+				56AB192F2C63E63D00F1A12B /* Resources */,
 				56AB18B42C63A24200F1A12B /* BookBoxApp.swift */,
 				56AB18B62C63A24200F1A12B /* BookBoxMainView.swift */,
 				56AB19262C63CFA100F1A12B /* BookItem */,
@@ -166,6 +166,14 @@
 				56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		56AB192F2C63E63D00F1A12B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
