@@ -7,18 +7,18 @@
 
 import Foundation
 
-extension Double {
+extension Float {
     private var timeFormater: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-        formatter.decimalSeparator = ":"
+        formatter.maximumFractionDigits = 1
+        formatter.decimalSeparator = "."
         return formatter
     }
     
     func timeWith2Decimals() -> String {
         let number = NSNumber(value: self)
-        return timeFormater.string(from: number) ?? "00:00"
+        return timeFormater.string(from: number) ?? "0.0"
     }
     
 }

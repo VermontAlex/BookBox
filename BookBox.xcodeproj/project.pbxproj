@@ -15,7 +15,7 @@
 		56AB19292C63CFA100F1A12B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */; };
 		56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */; };
 		56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* BookView.swift */; };
-		56AB192C2C63CFA100F1A12B /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */; };
+		56AB192C2C63CFA100F1A12B /* Float+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */; };
 		56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */; };
 		56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */; };
 		56AB19332C63F50A00F1A12B /* BookItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19322C63F50A00F1A12B /* BookItemView.swift */; };
@@ -51,7 +51,7 @@
 		56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		56AB19242C63CFA100F1A12B /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
-		56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+NumberFormatter.swift"; sourceTree = "<group>"; };
+		56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+NumberFormatter.swift"; sourceTree = "<group>"; };
 		56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mockaudio.mp3; sourceTree = "<group>"; };
 		56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentControlView.swift; sourceTree = "<group>"; };
 		56AB19322C63F50A00F1A12B /* BookItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemView.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		56AB19282C63CFA100F1A12B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */,
+				56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 				56AB19352C63F5C200F1A12B /* Book.swift in Sources */,
 				56AB18B72C63A24200F1A12B /* BookBoxMainView.swift in Sources */,
 				56AB19332C63F50A00F1A12B /* BookItemView.swift in Sources */,
-				56AB192C2C63CFA100F1A12B /* Double+NumberFormatter.swift in Sources */,
+				56AB192C2C63CFA100F1A12B /* Float+NumberFormatter.swift in Sources */,
 				56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */,
 				56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */,
 				56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */,
