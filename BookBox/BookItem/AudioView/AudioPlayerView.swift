@@ -15,11 +15,8 @@ struct AudioPlayerView: View {
 
     @State private var audioSpeed = 1
     
-    @State private var currentAudioTime: TimeInterval = 00.0
+    @State private var currentAudioTime: TimeInterval = 0.0
     @State private var totalAudioTime: TimeInterval = 0.0
-    
-    @State private var endAudioValue = 03.42 //  AudioValue from audio
-    @State private var endAudio = 03.42 //  AudioValueToShow
     
     var body: some View {
         VStack(spacing: 20) {
@@ -37,6 +34,12 @@ struct AudioPlayerView: View {
         }
         .onAppear {
             setUpAudio()
+        }
+        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
+            updateProgress()
+        })
+        .onDisappear {
+            stopAudio()
         }
     }
     
@@ -77,7 +80,9 @@ struct AudioPlayerView: View {
     }
     
     private func seekAudio(to time: TimeInterval) {
+        pauseAudio()
         audioPlayer?.currentTime = time
+        playAudio()
     }
     
     private func timeString(time: TimeInterval) -> String {
@@ -91,17 +96,18 @@ extension AudioPlayerView {
     
     var sliderView: some View {
         HStack {
-            Text(currentAudioTime.timeWith2Decimals())
+            Text(timeString(time: currentAudioTime))
+                .frame(width: 40)
+                
+                Slider(value: Binding(get: {
+                    currentAudioTime
+                }, set: { newValue in
+                    seekAudio(to: newValue)
+                }), in: 0...totalAudioTime)
+                .tint(.blue)
             
-//            Slider(value: $currentAudioTime,
-//                   in: 0.0...endAudioValue)
-            Slider(value: Binding(get: {
-                currentAudioTime
-            }, set: { newValue in
-                seekAudio(to: newValue)
-            }), in: 0...totalAudioTime)
-            
-            Text(endAudioValue.timeWith2Decimals())
+            Text(timeString(time: totalAudioTime - currentAudioTime))
+                .frame(width: 40)
         }
         .padding()
         .font(.subheadline)
@@ -113,7 +119,7 @@ extension AudioPlayerView {
         HStack(spacing: 20) {
             //  Backward start
             Button {
-                currentAudioTime = 00.00
+                seekAudio(to: 0.0)
             } label: {
                 Image(systemName: "backward.end.fill")
                     .font(.title)
@@ -122,8 +128,13 @@ extension AudioPlayerView {
             
             //  Backward 5
             Button {
-                if currentAudioTime > 0.00 {
-                    currentAudioTime -= 0.05
+                currentAudioTime -= 5
+                
+                if currentAudioTime > 0 {
+                    seekAudio(to: currentAudioTime)
+                } else {
+                    currentAudioTime = 0
+                    seekAudio(to: currentAudioTime)
                 }
             } label: {
                 Image(systemName: "gobackward.5")
@@ -143,14 +154,15 @@ extension AudioPlayerView {
 
             //  Forward 10
             Button {
-                currentAudioTime += 0.1
+                currentAudioTime += 10
+                seekAudio(to: currentAudioTime)
             } label: {
                 Image(systemName: "goforward.10")
             }
             
             //  Forward end
             Button {
-                currentAudioTime = endAudioValue
+                seekAudio(to: totalAudioTime)
             } label: {
                 Image(systemName: "forward.end.fill")
             }

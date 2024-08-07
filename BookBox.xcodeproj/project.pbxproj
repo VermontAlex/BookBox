@@ -16,6 +16,7 @@
 		56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */; };
 		56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* BookView.swift */; };
 		56AB192C2C63CFA100F1A12B /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */; };
+		56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		56AB19242C63CFA100F1A12B /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+NumberFormatter.swift"; sourceTree = "<group>"; };
+		56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mockaudio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		56AB18B32C63A24200F1A12B /* BookBox */ = {
 			isa = PBXGroup;
 			children = (
+				56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */,
 				56AB18B42C63A24200F1A12B /* BookBoxApp.swift */,
 				56AB18B62C63A24200F1A12B /* BookBoxMainView.swift */,
 				56AB19262C63CFA100F1A12B /* BookItem */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56AB19292C63CFA100F1A12B /* Preview Assets.xcassets in Resources */,
+				56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
