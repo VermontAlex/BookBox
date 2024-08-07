@@ -9,31 +9,18 @@ import SwiftUI
 
 struct BookBoxMainView: View {
     
-    var dataSource = [BookView(imageId: "BookLogo"), BookView(imageId: "BookLogo")]
+    var dataSource = [Book(id:"BookLogo"), 
+                      Book(id:"BookLogo2"),
+                      Book(id:"BookLogo3")]
     
     var body: some View {
         TabView {
-            //  Book1
-            VStack {
-                Spacer()
-                BookView(imageId: "BookLogo")
-                AudioPlayerView()
-                Spacer()
-                RoundedSegmentControlView()
-                Spacer()
-            }
-            
-            //  Book2
-            VStack {
-                Spacer()
-                BookView(imageId: "BookLogo")
-                AudioPlayerView()
-                Spacer()
-                RoundedSegmentControlView()
-                Spacer()
+            ForEach(dataSource) { bookId in
+                BookItemView(book: bookId)
             }
         }
         .tabViewStyle(PageTabViewStyle())
+        .transition(.slide)
     }
 }
 
