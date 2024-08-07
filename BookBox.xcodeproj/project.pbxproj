@@ -17,6 +17,7 @@
 		56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* BookView.swift */; };
 		56AB192C2C63CFA100F1A12B /* Double+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */; };
 		56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */; };
+		56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		56AB19242C63CFA100F1A12B /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		56AB19272C63CFA100F1A12B /* Double+NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+NumberFormatter.swift"; sourceTree = "<group>"; };
 		56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mockaudio.mp3; sourceTree = "<group>"; };
+		56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				56AB18B32C63A24200F1A12B /* BookBox */,
+				56AB192F2C63E63D00F1A12B /* Resources */,
 				56AB18C42C63A24300F1A12B /* BookBoxTests */,
 				56AB18CE2C63A24300F1A12B /* BookBoxUITests */,
 				56AB18B22C63A24200F1A12B /* Products */,
@@ -100,12 +103,12 @@
 		56AB18B32C63A24200F1A12B /* BookBox */ = {
 			isa = PBXGroup;
 			children = (
-				56AB192F2C63E63D00F1A12B /* Resources */,
 				56AB18B42C63A24200F1A12B /* BookBoxApp.swift */,
 				56AB18B62C63A24200F1A12B /* BookBoxMainView.swift */,
 				56AB19262C63CFA100F1A12B /* BookItem */,
 				56AB19282C63CFA100F1A12B /* Helpers */,
 				56AB19212C63CFA100F1A12B /* Preview Content */,
+				56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */,
 			);
 			path = BookBox;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				56AB192C2C63CFA100F1A12B /* Double+NumberFormatter.swift in Sources */,
 				56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */,
 				56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */,
+				56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */,
 				56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

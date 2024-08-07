@@ -14,9 +14,23 @@ struct BookBoxMainView: View {
     var body: some View {
         TabView {
             //  Book1
-            VStack(spacing: 0) {
+            VStack {
+                Spacer()
                 BookView(imageId: "BookLogo")
                 AudioPlayerView()
+                Spacer()
+                RoundedSegmentControlView()
+                Spacer()
+            }
+            
+            //  Book2
+            VStack {
+                Spacer()
+                BookView(imageId: "BookLogo")
+                AudioPlayerView()
+                Spacer()
+                RoundedSegmentControlView()
+                Spacer()
             }
         }
         .tabViewStyle(PageTabViewStyle())
