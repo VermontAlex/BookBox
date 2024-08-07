@@ -10,10 +10,12 @@ import AVKit
 
 struct AudioPlayerView: View {
     
+    private var kMaxPlaybackSpeed = 3
+    
     @State private var audioPlayer: AVAudioPlayer?
     @State private var isPlaying = false
 
-    @State private var audioSpeed = 1
+    @State private var playbackSpeed = 1
     
     @State private var currentAudioTime: TimeInterval = 0.0
     @State private var totalAudioTime: TimeInterval = 0.0
@@ -23,8 +25,15 @@ struct AudioPlayerView: View {
             sliderView
             
             //  Speed view button
-            Button("Speed x\(audioSpeed)") {
-                audioSpeed += 1
+            Button("Speed x\(playbackSpeed)") {
+                guard isPlaying else { return }
+                if playbackSpeed < kMaxPlaybackSpeed {
+                    playbackSpeed += 1
+                } else {
+                    playbackSpeed = 1
+                }
+
+                playBackSpeed(rate: Float(playbackSpeed))
             }
             .foregroundStyle(.black)
             .bold()
@@ -50,6 +59,7 @@ struct AudioPlayerView: View {
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.enableRate = true
             audioPlayer?.prepareToPlay()
             totalAudioTime = audioPlayer?.duration ?? 0.0
         } catch(let error) {
@@ -83,6 +93,11 @@ struct AudioPlayerView: View {
         pauseAudio()
         audioPlayer?.currentTime = time
         playAudio()
+    }
+    
+    private func playBackSpeed(rate: Float) {
+        audioPlayer?.play()
+        audioPlayer?.rate = rate
     }
     
     private func timeString(time: TimeInterval) -> String {
