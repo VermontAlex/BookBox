@@ -24,5 +24,5 @@ struct BookItemView: View {
 }
 
 #Preview {
-    BookItemView(book: Book(id: BooksIdMock.book1))
+    BookItemView(book: Book())
 }

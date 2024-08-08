@@ -27,5 +27,5 @@ struct BookView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    BookView(imageId: BooksIdMock.book1)
+    BookView(imageId: BooksMock.bookId1)
 }
