@@ -5,31 +5,16 @@
 //  Created by Oleksandr Oliinyk on 08.08.2024.
 //
 
-import Foundation
-import SwiftUI
-import Combine
 import AVKit
 
-protocol AudioPlayerManagerProtocol: AnyObject {
-    var isPlaying: Bool { get set }
-    func setUpAudio()
-    func playAudio()
-    func pauseAudio()
-    func stopAudio()
-    func updateProgress()
-    func seekAudio(to time: TimeInterval)
-    func playBackSpeed(rate: Float)
-}
-
-class AudioPlayerManager: AudioPlayerManagerProtocol, ObservableObject {
-    
-    var audioPlayer: AVAudioPlayer?
+class AudioPlayerManager: ObservableObject {
     
     @Published var isPlaying = false
     @Published var currentAudioTime: TimeInterval = 0.0
     @Published var totalAudioTime: TimeInterval = 0.0
     
     private var audioUrl: URL?
+    private var audioPlayer: AVAudioPlayer?
     
     init(audioUrl: URL?) {
         self.audioUrl = audioUrl

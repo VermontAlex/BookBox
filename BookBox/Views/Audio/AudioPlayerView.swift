@@ -11,8 +11,11 @@ import Combine
 
 struct AudioPlayerView: View {
     
-    private let kMaxPlaybackSpeed: Float = 2.0
     @State private var playbackSpeed: Float = 1.0
+    
+    private let kMoveBackward = 5.0
+    private let kMoveForward = 10.0
+    private let kMaxPlaybackSpeed: Float = 2.0
     
     @StateObject private var audioPlayerManager: AudioPlayerManager
     
@@ -24,14 +27,7 @@ struct AudioPlayerView: View {
         VStack(spacing: 20) {
             sliderView
             
-            //  Speed view button
-            Button("Speed x\(playbackSpeed.timeWith2Decimals())") {
-                playbackSpeed = playbackSpeed < kMaxPlaybackSpeed ? playbackSpeed + 0.5 : 1.0
-                audioPlayerManager.playBackSpeed(rate: playbackSpeed)
-            }
-            .foregroundStyle(.black)
-            .bold()
-            .buttonStyle(BorderedButtonStyle())
+            playBackSpeedView
             
             audioPlayPannel
         }
@@ -75,21 +71,30 @@ extension AudioPlayerView {
         .foregroundStyle(.gray)
     }
     
+    var playBackSpeedView: some View {
+        Button("Speed x\(playbackSpeed.timeWith2Decimals())") {
+            playbackSpeed = playbackSpeed < kMaxPlaybackSpeed ? playbackSpeed + 0.5 : 1.0
+            audioPlayerManager.playBackSpeed(rate: playbackSpeed)
+        }
+        .foregroundStyle(.black)
+        .bold()
+        .buttonStyle(BorderedButtonStyle())
+    }
+    
     var audioPlayPannel: some View {
-        //  Play/Pause buttons
         HStack(spacing: 20) {
-            //  Backward start
+            //  Backward chapter
             Button {
                 audioPlayerManager.seekAudio(to: 0.0)
             } label: {
-                Image(systemName: "backward.end.fill")
+                AppImageConstants.backwardEnd
                     .font(.title)
                     .foregroundStyle(.black)
             }
             
             //  Backward 5
             Button {
-                audioPlayerManager.currentAudioTime -= 5
+                audioPlayerManager.currentAudioTime -= kMoveBackward
                 
                 if audioPlayerManager.currentAudioTime > 0 {
                     audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
@@ -98,7 +103,7 @@ extension AudioPlayerView {
                     audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
                 }
             } label: {
-                Image(systemName: "gobackward.5")
+                AppImageConstants.backwardFive
             }
             
             //  Play/Pause
@@ -107,25 +112,25 @@ extension AudioPlayerView {
             } label: {
                 ZStack {
                     audioPlayerManager.isPlaying ?
-                    Image(systemName: "pause.fill"):
-                    Image(systemName: "play.fill")
+                    AppImageConstants.pause:
+                    AppImageConstants.play
                 }
                 .animation(.bouncy, value: audioPlayerManager.isPlaying)
             }
 
             //  Forward 10
             Button {
-                audioPlayerManager.currentAudioTime += 10
+                audioPlayerManager.currentAudioTime += kMoveForward
                 audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
             } label: {
-                Image(systemName: "goforward.10")
+                AppImageConstants.forwardTen
             }
             
             //  Forward end
             Button {
                 audioPlayerManager.seekAudio(to: audioPlayerManager.totalAudioTime)
             } label: {
-                Image(systemName: "forward.end.fill")
+                AppImageConstants.forwardEnd
             }
         }
         .font(.title)
