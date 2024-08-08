@@ -11,14 +11,13 @@ import Combine
 
 struct AudioPlayerView: View {
     
-    @State private var playbackSpeed: Float = 1.0
-    @State private var showAlert = false
-    @State private var error: AudioPlayerManager.AudioError?
-    
     private let kMoveBackward = 5.0
     private let kMoveForward = 10.0
     private let kMaxPlaybackSpeed: Float = 2.0
     
+    @State private var playbackSpeed: Float = 1.0
+    @State private var showAlert = false
+    @State private var error: AudioPlayerManager.AudioError?
     @StateObject private var audioPlayerManager: AudioPlayerManager
     
     init(audioPlayerManager: AudioPlayerManager) {
@@ -30,22 +29,16 @@ struct AudioPlayerView: View {
             
             if error == nil {
                 sliderView
-                
                 playBackSpeedView
-                
                 audioPlayPannel
             } else {
                 Text("Something went wrong with audio, please try again later")
                     .padding()
             }
+            
         }
         .onAppear {
-            do {
-                try audioPlayerManager.setUpAudio()
-            } catch(let error) {
-                self.error = error as? AudioPlayerManager.AudioError
-                showAlert = true
-            }
+            setupAudioPlayer()
         }
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
             audioPlayerManager.updateProgress()
@@ -54,12 +47,25 @@ struct AudioPlayerView: View {
             audioPlayerManager.stopAudio()
         }
         .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Error"),
-                message: Text(error?.rawValue ?? ""),
-                dismissButton: .default(Text("OK"))
-            )
+            createAlert(message: error?.rawValue ?? "")
         }
+    }
+    
+    private func setupAudioPlayer() {
+        do {
+            try audioPlayerManager.setUpAudio()
+        } catch(let error) {
+            self.error = error as? AudioPlayerManager.AudioError ?? AudioPlayerManager.AudioError.unknow
+            showAlert = true
+        }
+    }
+    
+    private func createAlert(message: String) -> Alert {
+        Alert(
+            title: Text("Error"),
+            message: Text(message),
+            dismissButton: .default(Text("OK"))
+        )
     }
     
     private func timeString(time: TimeInterval) -> String {
@@ -75,13 +81,13 @@ extension AudioPlayerView {
         HStack {
             Text(timeString(time: audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
-                
-                Slider(value: Binding(get: {
-                    audioPlayerManager.currentAudioTime
-                }, set: { newValue in
-                    audioPlayerManager.seekAudio(to: newValue)
-                }), in: 0...audioPlayerManager.totalAudioTime)
-                .tint(.blue)
+            
+            Slider(value: Binding(get: {
+                audioPlayerManager.currentAudioTime
+            }, set: { newValue in
+                audioPlayerManager.seekAudio(to: newValue)
+            }), in: 0...audioPlayerManager.totalAudioTime)
+            .tint(.blue)
             
             Text(timeString(time: audioPlayerManager.totalAudioTime - audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
@@ -138,7 +144,7 @@ extension AudioPlayerView {
                 }
                 .animation(.bouncy, value: audioPlayerManager.isPlaying)
             }
-
+            
             //  Forward 10
             Button {
                 audioPlayerManager.currentAudioTime += kMoveForward

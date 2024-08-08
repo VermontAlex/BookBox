@@ -12,6 +12,7 @@ class AudioPlayerManager: ObservableObject {
     enum AudioError: String, Error {
         case invalidUrl = "Fail to retreive audio from Bundle"
         case failAVPLayer = "Fail to create AVAudioPlayer"
+        case unknow = "Unknow error"
     }
     
     @Published var isPlaying = false
