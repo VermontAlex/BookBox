@@ -9,6 +9,11 @@ import AVKit
 
 class AudioPlayerManager: ObservableObject {
     
+    enum AudioError: String, Error {
+        case invalidUrl = "Fail to retreive audio from Bundle"
+        case failAVPLayer = "Fail to create AVAudioPlayer"
+    }
+    
     @Published var isPlaying = false
     @Published var currentAudioTime: TimeInterval = 0.0
     @Published var totalAudioTime: TimeInterval = 0.0
@@ -18,21 +23,20 @@ class AudioPlayerManager: ObservableObject {
     
     init(audioUrl: URL?) {
         self.audioUrl = audioUrl
-        setUpAudio()
     }
     
-    func setUpAudio() {
+    func setUpAudio() throws {
         guard let url = audioUrl else {
-            print("Fail to retreive audio")
-            return }
+            throw AudioError.invalidUrl
+        }
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.enableRate = true
             audioPlayer?.prepareToPlay()
             totalAudioTime = audioPlayer?.duration ?? 0.0
-        } catch(let error) {
-            print(error.localizedDescription)
+        } catch {
+            throw AudioError.failAVPLayer
         }
     }
     
@@ -69,5 +73,4 @@ class AudioPlayerManager: ObservableObject {
         guard isPlaying else { return }
         audioPlayer?.play()
     }
-    
 }

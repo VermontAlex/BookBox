@@ -12,6 +12,8 @@ import Combine
 struct AudioPlayerView: View {
     
     @State private var playbackSpeed: Float = 1.0
+    @State private var showAlert = false
+    @State private var error: AudioPlayerManager.AudioError?
     
     private let kMoveBackward = 5.0
     private let kMoveForward = 10.0
@@ -25,20 +27,38 @@ struct AudioPlayerView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            sliderView
             
-            playBackSpeedView
-            
-            audioPlayPannel
+            if error == nil {
+                sliderView
+                
+                playBackSpeedView
+                
+                audioPlayPannel
+            } else {
+                Text("Something went wrong with audio, please try again later")
+                    .padding()
+            }
         }
         .onAppear {
-            audioPlayerManager.setUpAudio()
+            do {
+                try audioPlayerManager.setUpAudio()
+            } catch(let error) {
+                self.error = error as? AudioPlayerManager.AudioError
+                showAlert = true
+            }
         }
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
             audioPlayerManager.updateProgress()
         })
         .onDisappear {
             audioPlayerManager.stopAudio()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text(error?.rawValue ?? ""),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
     
@@ -84,6 +104,7 @@ extension AudioPlayerView {
     private var audioPlayPannel: some View {
         HStack(spacing: 20) {
             //  Backward chapter
+            
             Button {
                 audioPlayerManager.seekAudio(to: 0.0)
             } label: {
@@ -138,6 +159,6 @@ extension AudioPlayerView {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: BooksMock.book1AudioUrl))
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: BooksMock.book1AudioUrl))
+//}

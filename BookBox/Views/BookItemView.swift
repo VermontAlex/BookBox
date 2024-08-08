@@ -16,12 +16,16 @@ struct BookItemView: View {
         VStack {
             Spacer()
             BookView(imageId: book.id)
+            
             AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: book.audioUrl))
+            
             Spacer()
             RoundedSegmentControlView()
             Spacer()
         }
     }
+    
+    
 }
 
 //#Preview {
