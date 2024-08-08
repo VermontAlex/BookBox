@@ -45,7 +45,7 @@ struct AudioPlayerView: View {
         }
     }
     
-    func setUpAudio() {
+    private func setUpAudio() {
         guard let url = Bundle.main.url(forResource: "mockaudio", withExtension: "mp3") else {
             print("Fail to retreive audio")
             return }
