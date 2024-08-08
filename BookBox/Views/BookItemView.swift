@@ -16,7 +16,7 @@ struct BookItemView: View {
         VStack {
             Spacer()
             BookView(imageId: book.id)
-            AudioPlayerView(audioUrl: book.audioUrl) //  Must take URL from book
+            AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: book.audioUrl))
             Spacer()
             RoundedSegmentControlView()
             Spacer()

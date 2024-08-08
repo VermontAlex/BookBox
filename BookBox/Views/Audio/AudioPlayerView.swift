@@ -7,23 +7,18 @@
 
 import SwiftUI
 import AVKit
+import Combine
 
 struct AudioPlayerView: View {
     
-    var audioUrl: URL? //   Temporary till refactoring
-    
-    init(audioUrl: URL?) {
-        self.audioUrl = audioUrl
-    }
-    
-    private var kMaxPlaybackSpeed: Float = 2.0
+    private let kMaxPlaybackSpeed: Float = 2.0
     @State private var playbackSpeed: Float = 1.0
     
-    @State private var audioPlayer: AVAudioPlayer?
-    @State private var isPlaying = false
+    @StateObject private var audioPlayerManager: AudioPlayerManager
     
-    @State private var currentAudioTime: TimeInterval = 0.0
-    @State private var totalAudioTime: TimeInterval = 0.0
+    init(audioPlayerManager: AudioPlayerManager) {
+        _audioPlayerManager = StateObject(wrappedValue: audioPlayerManager)
+    }
     
     var body: some View {
         VStack(spacing: 20) {
@@ -32,7 +27,7 @@ struct AudioPlayerView: View {
             //  Speed view button
             Button("Speed x\(playbackSpeed.timeWith2Decimals())") {
                 playbackSpeed = playbackSpeed < kMaxPlaybackSpeed ? playbackSpeed + 0.5 : 1.0
-                playBackSpeed(rate: playbackSpeed)
+                audioPlayerManager.playBackSpeed(rate: playbackSpeed)
             }
             .foregroundStyle(.black)
             .bold()
@@ -41,63 +36,14 @@ struct AudioPlayerView: View {
             audioPlayPannel
         }
         .onAppear {
-            setUpAudio()
+            audioPlayerManager.setUpAudio()
         }
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
-            updateProgress()
+            audioPlayerManager.updateProgress()
         })
         .onDisappear {
-            stopAudio()
+            audioPlayerManager.stopAudio()
         }
-    }
-    
-    private func setUpAudio() {
-        guard let url = Bundle.main.url(forResource: "mockaudio", withExtension: "mp3") else {
-            print("Fail to retreive audio")
-            return }
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.enableRate = true
-            audioPlayer?.prepareToPlay()
-            totalAudioTime = audioPlayer?.duration ?? 0.0
-        } catch(let error) {
-            print(error.localizedDescription)
-        }
-    }
-    
-    private func playAudio() {
-        guard !isPlaying else { return }
-        audioPlayer?.play()
-        isPlaying.toggle()
-    }
-    
-    private func pauseAudio() {
-        guard isPlaying else { return }
-        audioPlayer?.pause()
-        isPlaying.toggle()
-    }
-    
-    private func stopAudio() {
-        audioPlayer?.stop()
-        audioPlayer = nil
-    }
-    
-    private func updateProgress() {
-        guard let audioPlayer = audioPlayer else { return }
-        currentAudioTime = audioPlayer.currentTime
-    }
-    
-    private func seekAudio(to time: TimeInterval) {
-        pauseAudio()
-        audioPlayer?.currentTime = time
-        playAudio()
-    }
-    
-    private func playBackSpeed(rate: Float) {
-        audioPlayer?.rate = rate
-        guard isPlaying else { return }
-        audioPlayer?.play()
     }
     
     private func timeString(time: TimeInterval) -> String {
@@ -111,17 +57,17 @@ extension AudioPlayerView {
     
     var sliderView: some View {
         HStack {
-            Text(timeString(time: currentAudioTime))
+            Text(timeString(time: audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
                 
                 Slider(value: Binding(get: {
-                    currentAudioTime
+                    audioPlayerManager.currentAudioTime
                 }, set: { newValue in
-                    seekAudio(to: newValue)
-                }), in: 0...totalAudioTime)
+                    audioPlayerManager.seekAudio(to: newValue)
+                }), in: 0...audioPlayerManager.totalAudioTime)
                 .tint(.blue)
             
-            Text(timeString(time: totalAudioTime - currentAudioTime))
+            Text(timeString(time: audioPlayerManager.totalAudioTime - audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
         }
         .padding()
@@ -134,7 +80,7 @@ extension AudioPlayerView {
         HStack(spacing: 20) {
             //  Backward start
             Button {
-                seekAudio(to: 0.0)
+                audioPlayerManager.seekAudio(to: 0.0)
             } label: {
                 Image(systemName: "backward.end.fill")
                     .font(.title)
@@ -143,13 +89,13 @@ extension AudioPlayerView {
             
             //  Backward 5
             Button {
-                currentAudioTime -= 5
+                audioPlayerManager.currentAudioTime -= 5
                 
-                if currentAudioTime > 0 {
-                    seekAudio(to: currentAudioTime)
+                if audioPlayerManager.currentAudioTime > 0 {
+                    audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
                 } else {
-                    currentAudioTime = 0
-                    seekAudio(to: currentAudioTime)
+                    audioPlayerManager.currentAudioTime = 0
+                    audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
                 }
             } label: {
                 Image(systemName: "gobackward.5")
@@ -157,27 +103,27 @@ extension AudioPlayerView {
             
             //  Play/Pause
             Button {
-                isPlaying ? pauseAudio() : playAudio()
+                audioPlayerManager.isPlaying ? audioPlayerManager.pauseAudio() : audioPlayerManager.playAudio()
             } label: {
                 ZStack {
-                    isPlaying ?
+                    audioPlayerManager.isPlaying ?
                     Image(systemName: "pause.fill"):
                     Image(systemName: "play.fill")
                 }
-                .animation(.bouncy, value: isPlaying)
+                .animation(.bouncy, value: audioPlayerManager.isPlaying)
             }
 
             //  Forward 10
             Button {
-                currentAudioTime += 10
-                seekAudio(to: currentAudioTime)
+                audioPlayerManager.currentAudioTime += 10
+                audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
             } label: {
                 Image(systemName: "goforward.10")
             }
             
             //  Forward end
             Button {
-                seekAudio(to: totalAudioTime)
+                audioPlayerManager.seekAudio(to: audioPlayerManager.totalAudioTime)
             } label: {
                 Image(systemName: "forward.end.fill")
             }
@@ -188,5 +134,5 @@ extension AudioPlayerView {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    AudioPlayerView(audioUrl: BooksMock.book1AudioUrl)
+    AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: BooksMock.book1AudioUrl))
 }
