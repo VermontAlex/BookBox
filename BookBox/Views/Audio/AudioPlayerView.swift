@@ -10,6 +10,12 @@ import AVKit
 
 struct AudioPlayerView: View {
     
+    var audioUrl: URL? //   Temporary till refactoring
+    
+    init(audioUrl: URL?) {
+        self.audioUrl = audioUrl
+    }
+    
     private var kMaxPlaybackSpeed: Float = 2.0
     @State private var playbackSpeed: Float = 1.0
     
@@ -182,5 +188,5 @@ extension AudioPlayerView {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    AudioPlayerView()
+    AudioPlayerView(audioUrl: BooksMock.book1AudioUrl)
 }

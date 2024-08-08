@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ComposableArchitecture
 
 enum BooksMock {
     static let bookId1 = "BookLogo1"
@@ -13,6 +14,12 @@ enum BooksMock {
     
     static let bookId2 = "BookLogo2"
     
-    
     static let bookId3 = "BookLogo3"
+    
+    static func getBookStoresMock() -> [StoreOf<Book>] {
+        return [Store(initialState: Book.State(id: BooksMock.bookId1, audioUrl: BooksMock.book1AudioUrl), reducer: { Book() }),
+                Store(initialState: Book.State(id: BooksMock.bookId2, audioUrl: BooksMock.book1AudioUrl), reducer: { Book() }),
+                Store(initialState: Book.State(id: BooksMock.bookId3, audioUrl: BooksMock.book1AudioUrl), reducer: { Book() })
+        ]
+    }
 }
