@@ -34,7 +34,7 @@ struct RoundedSegmentControlView: View {
                             isLeftSelected = true
                         }
                     }) {
-                        Image(systemName: "headphones")
+                        AppImageConstants.headPhones
                             .foregroundStyle(isLeftSelected ? .white : .black)
                             .frame(width: 35, height: 35)
                             .font(.title2)
@@ -45,7 +45,7 @@ struct RoundedSegmentControlView: View {
                             isLeftSelected = false
                         }
                     }) {
-                        Image(systemName: "text.alignleft")
+                        AppImageConstants.alignleft
                             .foregroundColor(isLeftSelected ? .black : .white)
                             .frame(width: 40, height: 40)
                             .font(.title2)

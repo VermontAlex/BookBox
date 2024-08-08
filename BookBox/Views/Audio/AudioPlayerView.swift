@@ -51,7 +51,7 @@ struct AudioPlayerView: View {
 
 extension AudioPlayerView {
     
-    var sliderView: some View {
+    private var sliderView: some View {
         HStack {
             Text(timeString(time: audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
@@ -71,7 +71,7 @@ extension AudioPlayerView {
         .foregroundStyle(.gray)
     }
     
-    var playBackSpeedView: some View {
+    private var playBackSpeedView: some View {
         Button("Speed x\(playbackSpeed.timeWith2Decimals())") {
             playbackSpeed = playbackSpeed < kMaxPlaybackSpeed ? playbackSpeed + 0.5 : 1.0
             audioPlayerManager.playBackSpeed(rate: playbackSpeed)
@@ -81,7 +81,7 @@ extension AudioPlayerView {
         .buttonStyle(BorderedButtonStyle())
     }
     
-    var audioPlayPannel: some View {
+    private var audioPlayPannel: some View {
         HStack(spacing: 20) {
             //  Backward chapter
             Button {

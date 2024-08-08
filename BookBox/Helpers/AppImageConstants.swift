@@ -13,4 +13,7 @@ enum AppImageConstants {
     static let play = Image(systemName: "play.fill")
     static let forwardTen = Image(systemName: "goforward.10")
     static let forwardEnd = Image(systemName: "forward.end.fill")
+    
+    static let headPhones = Image(systemName: "headphones")
+    static let alignleft = Image(systemName: "text.alignleft")
 }

@@ -8,6 +8,11 @@
 import Foundation
 
 extension Float {
+    func timeWith2Decimals() -> String {
+        let number = NSNumber(value: self)
+        return timeFormater.string(from: number) ?? "0.0"
+    }
+    
     private var timeFormater: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 2
@@ -15,10 +20,4 @@ extension Float {
         formatter.decimalSeparator = "."
         return formatter
     }
-    
-    func timeWith2Decimals() -> String {
-        let number = NSNumber(value: self)
-        return timeFormater.string(from: number) ?? "0.0"
-    }
-    
 }
