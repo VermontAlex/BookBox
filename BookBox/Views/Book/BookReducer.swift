@@ -12,12 +12,19 @@ import ComposableArchitecture
 struct BookReducer {
     
     struct State: Equatable {
+        
         let id: String
         let audioUrl: URL?
+        let chapters: [BookChapter]
         
-        init(id: String = BooksMock.bookId1, audioUrl: URL? = BooksMock.book1AudioUrl) {
+        init(id: String = BooksMock.bookId1, audioUrl: URL? = BooksMock.book1AudioUrl, chapters: [BookChapter] = []) {
             self.id = id
             self.audioUrl = audioUrl
+            self.chapters = chapters
+        }
+        
+        static func == (lhs: BookReducer.State, rhs: BookReducer.State) -> Bool {
+            lhs.id == rhs.id
         }
     }
     
@@ -29,3 +36,4 @@ struct BookReducer {
         //  MARK: To-Do: Reduce need to be implemented when more technical detailes received
     }
 }
+

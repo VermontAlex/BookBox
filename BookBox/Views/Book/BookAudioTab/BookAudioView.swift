@@ -1,5 +1,5 @@
 //
-//  BookItemView.swift
+//  BookAudioView.swift
 //  BookBox
 //
 //  Created by Oleksandr Oliinyk on 07.08.2024.
@@ -8,24 +8,17 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct BookItemView: View {
+struct BookAudioView: View {
     
     var book: ViewStoreOf<BookReducer>
     
     var body: some View {
         VStack {
-            Spacer()
-            BookView(imageId: book.id)
+            BookView(book: book)
             
             AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: book.audioUrl))
-            
-            Spacer()
-            RoundedSegmentControlView()
-            Spacer()
         }
     }
-    
-    
 }
 
 //#Preview {

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RoundedSegmentControlView: View {
-
-    @State private var isLeftSelected: Bool = true
+    
+    @Binding var isLeftSelected: Bool
     
     var body: some View {
         HStack {
@@ -58,5 +58,5 @@ struct RoundedSegmentControlView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    RoundedSegmentControlView()
+    RoundedSegmentControlView(isLeftSelected: .constant(true))
 }

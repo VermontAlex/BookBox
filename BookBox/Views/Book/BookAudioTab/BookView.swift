@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct BookView: View {
     
-    let imageId: String
+    let book: ViewStoreOf<BookReducer>
     
     var body: some View {
         VStack {
-            Image(imageId)
+            Image(book.id)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 300)
@@ -21,11 +22,11 @@ struct BookView: View {
                 .foregroundStyle(Color.gray)
                 .font(.subheadline)
                 .bold()
-            Text("Design in not how it looks, but how it works")
+            Text("book.chapter")
         }
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    BookView(imageId: BooksMock.bookId1)
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    BookView(imageId: BooksMock.bookId1)
+//}
