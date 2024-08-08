@@ -22,7 +22,7 @@
 		56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */; };
 		56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */; };
 		56AB19332C63F50A00F1A12B /* BookItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19322C63F50A00F1A12B /* BookItemView.swift */; };
-		56AB19352C63F5C200F1A12B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19342C63F5C200F1A12B /* Book.swift */; };
+		56AB19352C63F5C200F1A12B /* BookReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19342C63F5C200F1A12B /* BookReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mockaudio.mp3; sourceTree = "<group>"; };
 		56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentControlView.swift; sourceTree = "<group>"; };
 		56AB19322C63F50A00F1A12B /* BookItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemView.swift; sourceTree = "<group>"; };
-		56AB19342C63F5C200F1A12B /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		56AB19342C63F5C200F1A12B /* BookReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				56AB19242C63CFA100F1A12B /* BookView.swift */,
-				56AB19342C63F5C200F1A12B /* Book.swift */,
+				56AB19342C63F5C200F1A12B /* BookReducer.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -329,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AB19352C63F5C200F1A12B /* Book.swift in Sources */,
+				56AB19352C63F5C200F1A12B /* BookReducer.swift in Sources */,
 				56AB18B72C63A24200F1A12B /* BookBoxMainView.swift in Sources */,
 				56AB19332C63F50A00F1A12B /* BookItemView.swift in Sources */,
 				562065DA2C64959700AB7A3F /* BooksMock.swift in Sources */,

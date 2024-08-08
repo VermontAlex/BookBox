@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct BookBoxApp: App {
     var body: some Scene {
         WindowGroup {
-            BookBoxMainView()
+            BookBoxMainView(store: BooksMock.getBookStoresMock())
         }
     }
 }

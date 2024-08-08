@@ -6,17 +6,25 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct BookBoxMainView: View {
     
-    var dataSource = [Book(id:"BookLogo"), 
-                      Book(id:"BookLogo2"),
-                      Book(id:"BookLogo3")]
+    private var store: [StoreOf<BookReducer>]
+    private var viewStore: [ViewStoreOf<BookReducer>]
+     
+    init(store: [StoreOf<BookReducer>]) {
+        self.store = store
+        self.viewStore = []
+        store.forEach({
+            viewStore.append(ViewStore($0, observe: { $0 }))
+        })
+    }
     
     var body: some View {
         TabView {
-            ForEach(dataSource) { bookId in
-                BookItemView(book: bookId)
+            ForEach(viewStore) { bookViewStore in
+                BookItemView(book: bookViewStore)
             }
         }
         .tabViewStyle(PageTabViewStyle())
@@ -24,6 +32,8 @@ struct BookBoxMainView: View {
     }
 }
 
+extension ViewStoreOf: Identifiable {}
+
 #Preview {
-    BookBoxMainView()
+    BookBoxMainView(store: [Store(initialState: BookReducer.State(), reducer: { BookReducer() })])
 }

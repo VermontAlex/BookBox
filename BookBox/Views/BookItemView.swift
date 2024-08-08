@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct BookItemView: View {
     
-    var book: Book
+    var book: ViewStoreOf<BookReducer>
     
     var body: some View {
         VStack {
             Spacer()
             BookView(imageId: book.id)
-            AudioPlayerView()
+            AudioPlayerView(audioUrl: book.audioUrl) //  Must take URL from book
             Spacer()
             RoundedSegmentControlView()
             Spacer()
@@ -23,6 +24,6 @@ struct BookItemView: View {
     }
 }
 
-#Preview {
-    BookItemView(book: Book())
-}
+//#Preview {
+//    BookItemView(book: ViewStoreOf(Book.s, observe: <#T##(State) -> _##(State) -> _##(_ state: State) -> _#>))
+//}
