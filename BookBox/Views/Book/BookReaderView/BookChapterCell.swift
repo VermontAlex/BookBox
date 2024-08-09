@@ -13,7 +13,7 @@ struct BookChapterCell: View {
     
     var body: some View {
         HStack {
-            NavigationLink(destination: BookChapterDescriptionView(chapterText: bookChapter.chapterDescription)) {
+            NavigationLink(destination: BookChapterView(chapterText: bookChapter.chapterDescription)) {
                 Text(bookChapter.chapterTitle)
                     .font(.title)
                     .bold()

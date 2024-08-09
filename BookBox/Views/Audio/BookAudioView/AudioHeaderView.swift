@@ -1,5 +1,5 @@
 //
-//  BookHeaderView.swift
+//  AudioHeaderView.swift
 //  BookBox
 //
 //  Created by Oleksandr Oliinyk on 07.08.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct BookHeaderView: View {
+struct AudioHeaderView: View {
     
     let book: ViewStoreOf<BookReducer>
     @Binding var chapterNumber: Int

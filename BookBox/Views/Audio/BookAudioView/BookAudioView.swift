@@ -27,7 +27,7 @@ struct BookAudioView: View {
     var body: some View {
         VStack {
             
-            BookHeaderView(book: book, chapterNumber: $chapterNumber)
+            AudioHeaderView(book: book, chapterNumber: $chapterNumber)
             
             if error == nil {
                 AudioPlayerView(audioPlayerManager: audioPlayerManager, chapterNumber: $chapterNumber, maxChapters: book.chapters.count - 1)
