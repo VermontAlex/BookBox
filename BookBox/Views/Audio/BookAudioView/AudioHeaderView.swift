@@ -21,14 +21,22 @@ struct AudioHeaderView: View {
                 .frame(width: 200, height: 300)
             
             if chapterNumber <= book.chapters.count && chapterNumber >= 0 {
-                Text("Key \(chapterNumber + 1) of \(book.chapters.count)")
+                Text("Key point \(chapterNumber + 1) of \(book.chapters.count)")
+                    .textCase(.uppercase)
                     .foregroundStyle(Color.gray)
-                    .font(.subheadline)
+                    .font(.footnote)
                     .bold()
                 
-                Text("\(book.chapters[chapterNumber].chapterTitle)")
+                HStack {
+                    Spacer()
+                    Text("\(book.chapters[chapterNumber].chapterTitle)")
+                        .bold()
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
+                }
             }
         }
     }
 }
-
