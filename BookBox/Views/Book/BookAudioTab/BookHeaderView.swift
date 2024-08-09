@@ -1,5 +1,5 @@
 //
-//  BookView.swift
+//  BookHeaderView.swift
 //  BookBox
 //
 //  Created by Oleksandr Oliinyk on 07.08.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct BookView: View {
+struct BookHeaderView: View {
     
     let book: ViewStoreOf<BookReducer>
     @Binding var chapterNumber: Int
@@ -19,6 +19,7 @@ struct BookView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 300)
+            
             if chapterNumber <= book.chapters.count && chapterNumber >= 0 {
                 Text("Key \(chapterNumber + 1) of \(book.chapters.count)")
                     .foregroundStyle(Color.gray)
@@ -31,6 +32,3 @@ struct BookView: View {
     }
 }
 
-//#Preview(traits: .sizeThatFitsLayout) {
-//    BookView(imageId: BooksMock.bookId1)
-//}

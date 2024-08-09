@@ -1,14 +1,13 @@
 //
-//  BookReaderListView.swift
+//  BookReaderView.swift
 //  BookBox
 //
 //  Created by Oleksandr Oliinyk on 08.08.2024.
 //
 
 import SwiftUI
-import ComposableArchitecture
 
-struct BookReaderListView: View {
+struct BookReaderView: View {
     
     var chapters: [BookChapter]
     
@@ -24,6 +23,6 @@ struct BookReaderListView: View {
     }
 }
 
-//#Preview {
-//    BookReaderListView(chapters: [BooksMock.chapter])
-//}
+#Preview {
+    BookReaderView(chapters: BooksMock.createBookChapters())
+}

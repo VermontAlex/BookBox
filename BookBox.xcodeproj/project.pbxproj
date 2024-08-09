@@ -10,20 +10,19 @@
 		562065D12C648FBD00AB7A3F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 562065D02C648FBD00AB7A3F /* ComposableArchitecture */; };
 		562065DA2C64959700AB7A3F /* BooksMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562065D92C64959700AB7A3F /* BooksMock.swift */; };
 		562065DD2C64A72500AB7A3F /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562065DC2C64A72500AB7A3F /* AudioPlayerManager.swift */; };
-		5620660A2C64B19700AB7A3F /* AppImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066092C64B19700AB7A3F /* AppImageConstants.swift */; };
 		5620660F2C64BEC500AB7A3F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5620660E2C64BEC500AB7A3F /* ComposableArchitecture */; };
-		562066132C64C51B00AB7A3F /* BookReaderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066122C64C51B00AB7A3F /* BookReaderListView.swift */; };
-		562066172C64C66B00AB7A3F /* BookChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066162C64C66B00AB7A3F /* BookChapterView.swift */; };
+		562066132C64C51B00AB7A3F /* BookReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066122C64C51B00AB7A3F /* BookReaderView.swift */; };
+		562066172C64C66B00AB7A3F /* BookChapterDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066162C64C66B00AB7A3F /* BookChapterDescriptionView.swift */; };
 		562066192C64C73600AB7A3F /* BookChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066182C64C73600AB7A3F /* BookChapter.swift */; };
 		5620661B2C64C87B00AB7A3F /* BookChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620661A2C64C87B00AB7A3F /* BookChapterCell.swift */; };
 		56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B42C63A24200F1A12B /* BookBoxApp.swift */; };
-		56AB18B72C63A24200F1A12B /* BookTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B62C63A24200F1A12B /* BookTabView.swift */; };
+		56AB18B72C63A24200F1A12B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B62C63A24200F1A12B /* MainTabView.swift */; };
 		56AB18C62C63A24300F1A12B /* BookBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18C52C63A24300F1A12B /* BookBoxTests.swift */; };
 		56AB18D02C63A24300F1A12B /* BookBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18CF2C63A24300F1A12B /* BookBoxUITests.swift */; };
 		56AB18D22C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18D12C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift */; };
 		56AB19292C63CFA100F1A12B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */; };
 		56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */; };
-		56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* BookView.swift */; };
+		56AB192B2C63CFA100F1A12B /* BookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* BookHeaderView.swift */; };
 		56AB192C2C63CFA100F1A12B /* Float+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */; };
 		56AB192E2C63D23F00F1A12B /* mockaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */; };
 		56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */; };
@@ -52,14 +51,13 @@
 /* Begin PBXFileReference section */
 		562065D92C64959700AB7A3F /* BooksMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksMock.swift; sourceTree = "<group>"; };
 		562065DC2C64A72500AB7A3F /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
-		562066092C64B19700AB7A3F /* AppImageConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageConstants.swift; sourceTree = "<group>"; };
-		562066122C64C51B00AB7A3F /* BookReaderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderListView.swift; sourceTree = "<group>"; };
-		562066162C64C66B00AB7A3F /* BookChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapterView.swift; sourceTree = "<group>"; };
+		562066122C64C51B00AB7A3F /* BookReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookReaderView.swift; sourceTree = "<group>"; };
+		562066162C64C66B00AB7A3F /* BookChapterDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapterDescriptionView.swift; sourceTree = "<group>"; };
 		562066182C64C73600AB7A3F /* BookChapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapter.swift; sourceTree = "<group>"; };
 		5620661A2C64C87B00AB7A3F /* BookChapterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapterCell.swift; sourceTree = "<group>"; };
 		56AB18B12C63A24200F1A12B /* BookBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AB18B42C63A24200F1A12B /* BookBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxApp.swift; sourceTree = "<group>"; };
-		56AB18B62C63A24200F1A12B /* BookTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabView.swift; sourceTree = "<group>"; };
+		56AB18B62C63A24200F1A12B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		56AB18C12C63A24300F1A12B /* BookBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AB18C52C63A24300F1A12B /* BookBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxTests.swift; sourceTree = "<group>"; };
 		56AB18CB2C63A24300F1A12B /* BookBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +65,7 @@
 		56AB18D12C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
-		56AB19242C63CFA100F1A12B /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		56AB19242C63CFA100F1A12B /* BookHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookHeaderView.swift; sourceTree = "<group>"; };
 		56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+NumberFormatter.swift"; sourceTree = "<group>"; };
 		56AB192D2C63D23F00F1A12B /* mockaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mockaudio.mp3; sourceTree = "<group>"; };
 		56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSegmentControlView.swift; sourceTree = "<group>"; };
@@ -106,8 +104,7 @@
 		562066142C64C61600AB7A3F /* BookAudioTab */ = {
 			isa = PBXGroup;
 			children = (
-				56AB19242C63CFA100F1A12B /* BookView.swift */,
-				56AB19322C63F50A00F1A12B /* BookAudioView.swift */,
+				56AB19242C63CFA100F1A12B /* BookHeaderView.swift */,
 			);
 			path = BookAudioTab;
 			sourceTree = "<group>";
@@ -115,7 +112,8 @@
 		562066152C64C62A00AB7A3F /* BookReaderView */ = {
 			isa = PBXGroup;
 			children = (
-				562066162C64C66B00AB7A3F /* BookChapterView.swift */,
+				5620661A2C64C87B00AB7A3F /* BookChapterCell.swift */,
+				562066162C64C66B00AB7A3F /* BookChapterDescriptionView.swift */,
 			);
 			path = BookReaderView;
 			sourceTree = "<group>";
@@ -145,9 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				56AB18B42C63A24200F1A12B /* BookBoxApp.swift */,
-				56AB18B62C63A24200F1A12B /* BookTabView.swift */,
-				562066122C64C51B00AB7A3F /* BookReaderListView.swift */,
-				5620661A2C64C87B00AB7A3F /* BookChapterCell.swift */,
+				56AB18B62C63A24200F1A12B /* MainTabView.swift */,
+				56AB19322C63F50A00F1A12B /* BookAudioView.swift */,
+				562066122C64C51B00AB7A3F /* BookReaderView.swift */,
 				56AB19262C63CFA100F1A12B /* Views */,
 				56AB19282C63CFA100F1A12B /* Helpers */,
 				56AB19212C63CFA100F1A12B /* Preview Content */,
@@ -183,7 +181,6 @@
 		56AB19232C63CFA100F1A12B /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				562065DC2C64A72500AB7A3F /* AudioPlayerManager.swift */,
 				56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */,
 			);
 			path = Audio;
@@ -192,8 +189,7 @@
 		56AB19252C63CFA100F1A12B /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				56AB19342C63F5C200F1A12B /* BookReducer.swift */,
-				562066182C64C73600AB7A3F /* BookChapter.swift */,
+				56FDD1322C660C5A0043606B /* Models */,
 				562066152C64C62A00AB7A3F /* BookReaderView */,
 				562066142C64C61600AB7A3F /* BookAudioTab */,
 			);
@@ -204,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				56AB19302C63EB0700F1A12B /* RoundedSegmentControlView.swift */,
+				562065DC2C64A72500AB7A3F /* AudioPlayerManager.swift */,
 				56AB19232C63CFA100F1A12B /* Audio */,
 				56AB19252C63CFA100F1A12B /* Book */,
 			);
@@ -215,7 +212,6 @@
 			children = (
 				56AB19272C63CFA100F1A12B /* Float+NumberFormatter.swift */,
 				562065D92C64959700AB7A3F /* BooksMock.swift */,
-				562066092C64B19700AB7A3F /* AppImageConstants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +223,15 @@
 				56FDD1302C65F6800043606B /* mockaudio2.mp3 */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		56FDD1322C660C5A0043606B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56AB19342C63F5C200F1A12B /* BookReducer.swift */,
+				562066182C64C73600AB7A3F /* BookChapter.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,18 +374,17 @@
 			files = (
 				56AB19352C63F5C200F1A12B /* BookReducer.swift in Sources */,
 				562065DD2C64A72500AB7A3F /* AudioPlayerManager.swift in Sources */,
-				56AB18B72C63A24200F1A12B /* BookTabView.swift in Sources */,
-				5620660A2C64B19700AB7A3F /* AppImageConstants.swift in Sources */,
-				562066132C64C51B00AB7A3F /* BookReaderListView.swift in Sources */,
+				56AB18B72C63A24200F1A12B /* MainTabView.swift in Sources */,
+				562066132C64C51B00AB7A3F /* BookReaderView.swift in Sources */,
 				562066192C64C73600AB7A3F /* BookChapter.swift in Sources */,
 				56AB19332C63F50A00F1A12B /* BookAudioView.swift in Sources */,
 				562065DA2C64959700AB7A3F /* BooksMock.swift in Sources */,
 				56AB192C2C63CFA100F1A12B /* Float+NumberFormatter.swift in Sources */,
 				56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */,
 				56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */,
-				562066172C64C66B00AB7A3F /* BookChapterView.swift in Sources */,
+				562066172C64C66B00AB7A3F /* BookChapterDescriptionView.swift in Sources */,
 				56AB19312C63EB0700F1A12B /* RoundedSegmentControlView.swift in Sources */,
-				56AB192B2C63CFA100F1A12B /* BookView.swift in Sources */,
+				56AB192B2C63CFA100F1A12B /* BookHeaderView.swift in Sources */,
 				5620661B2C64C87B00AB7A3F /* BookChapterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@ import ComposableArchitecture
 struct BookBoxApp: App {
     var body: some Scene {
         WindowGroup {
-            BookTabView(store: BooksMock.getBookStoresMock())
+            MainTabView(store: BooksMock.getBookStoresMock())
         }
     }
 }

@@ -13,7 +13,7 @@ struct BookChapterCell: View {
     
     var body: some View {
         HStack {
-            NavigationLink(destination: detailView) {
+            NavigationLink(destination: BookChapterDescriptionView(chapterText: bookChapter.chapterDescription)) {
                 Text(bookChapter.chapterTitle)
                     .font(.title)
                     .bold()
@@ -23,14 +23,6 @@ struct BookChapterCell: View {
     }
 }
 
-extension BookChapterCell {
-    var detailView: some View {
-        Text("Work in progress, here you will see whole chapter. Waiting soon")
-            .font(.largeTitle)
-            .padding()
-    }
+#Preview(traits: .sizeThatFitsLayout) {
+    BookChapterCell(bookChapter: BooksMock.createBookChapters()[0])
 }
-
-//#Preview(traits: .sizeThatFitsLayout) {
-//    BookChapterCell(bookChapter: BooksMock.chapter)
-//}

@@ -11,33 +11,29 @@ import Combine
 
 struct AudioPlayerView: View {
     
+    private enum PlayerImageConstants {
+        static let backwardEnd = Image(systemName: "backward.end.fill")
+        static let backwardFive = Image(systemName: "gobackward.5")
+        static let pause = Image(systemName: "pause.fill")
+        static let play = Image(systemName: "play.fill")
+        static let forwardTen = Image(systemName: "goforward.10")
+        static let forwardEnd = Image(systemName: "forward.end.fill")
+    }
+    
+    @StateObject var audioPlayerManager: AudioPlayerManager
+    @Binding var chapterNumber: Int
+    var maxChapters: Int
+    
+    @State private var playbackSpeed: Float = 1.0
     private let kMoveBackward = 5.0
     private let kMoveForward = 10.0
     private let kMaxPlaybackSpeed: Float = 2.0
     
-    @State private var playbackSpeed: Float = 1.0
-    @State private var showAlert = false
-    @State private var error: AudioPlayerManager.AudioError?
-    @StateObject var audioPlayerManager: AudioPlayerManager
-    
-    @Binding var chapterNumber: Int
-    var maxChapters: Int
-    
     var body: some View {
         VStack(spacing: 20) {
-            
-            if error == nil {
-                sliderView
-                playBackSpeedView
-                audioPlayPannel
-            } else {
-                Text("Something went wrong with audio, please try again later")
-                    .padding()
-            }
-            
-        }
-        .onAppear {
-            setupAudioPlayer()
+            sliderView
+            playBackSpeedView
+            audioPlayPannel
         }
         .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect(), perform: { _ in
             audioPlayerManager.updateProgress()
@@ -45,42 +41,12 @@ struct AudioPlayerView: View {
         .onDisappear {
             audioPlayerManager.stopAudio()
         }
-        .alert(isPresented: $showAlert) {
-            createAlert(message: error?.rawValue ?? "")
-        }
     }
     
-    private func setupAudioPlayer() {
-        do {
-            try audioPlayerManager.setUpAudio()
-        } catch(let error) {
-            self.error = error as? AudioPlayerManager.AudioError ?? AudioPlayerManager.AudioError.unknow
-            showAlert = true
-        }
-    }
-    
-    private func createAlert(message: String) -> Alert {
-        Alert(
-            title: Text("Error"),
-            message: Text(message),
-            dismissButton: .default(Text("OK"))
-        )
-    }
-    
-    private func timeString(time: TimeInterval) -> String {
+    private func timeIntervalToString(_ time: TimeInterval) -> String {
         let minute = Int(time) / 60
         let seconds = Int(time) % 60
         return String(format: "%2d:%02d", minute, seconds)
-    }
-    
-    mutating func incrementChapter() {
-        let value = chapterNumber + 1
-        chapterNumber = value > 10 ? 10 : value
-    }
-    
-    mutating func decrementChapter() {
-        let value = chapterNumber - 1
-        chapterNumber = value < 0 ? 0 : value
     }
 }
 
@@ -88,9 +54,10 @@ extension AudioPlayerView {
     
     private var sliderView: some View {
         HStack {
-            Text(timeString(time: audioPlayerManager.currentAudioTime))
+            Text(timeIntervalToString(audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
             
+            //  MARK: TO-DO - Replace on UISlider
             Slider(value: Binding(get: {
                 audioPlayerManager.currentAudioTime
             }, set: { newValue in
@@ -98,7 +65,7 @@ extension AudioPlayerView {
             }), in: 0...audioPlayerManager.totalAudioTime)
             .tint(.blue)
             
-            Text(timeString(time: audioPlayerManager.totalAudioTime - audioPlayerManager.currentAudioTime))
+            Text(timeIntervalToString(audioPlayerManager.totalAudioTime - audioPlayerManager.currentAudioTime))
                 .frame(width: 40)
         }
         .padding()
@@ -119,12 +86,11 @@ extension AudioPlayerView {
     private var audioPlayPannel: some View {
         HStack(spacing: 20) {
             //  Backward chapter
-            
             Button {
                 let newValue = chapterNumber - 1
                 chapterNumber = newValue < 0 ? 0 : newValue
             } label: {
-                AppImageConstants.backwardEnd
+                PlayerImageConstants.backwardEnd
                     .font(.title)
                     .foregroundStyle(.black)
             }
@@ -140,7 +106,7 @@ extension AudioPlayerView {
                     audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
                 }
             } label: {
-                AppImageConstants.backwardFive
+                PlayerImageConstants.backwardFive
             }
             
             //  Play/Pause
@@ -149,8 +115,8 @@ extension AudioPlayerView {
             } label: {
                 ZStack {
                     audioPlayerManager.isPlaying ?
-                    AppImageConstants.pause:
-                    AppImageConstants.play
+                    PlayerImageConstants.pause:
+                    PlayerImageConstants.play
                 }
                 .animation(.bouncy, value: audioPlayerManager.isPlaying)
             }
@@ -160,7 +126,7 @@ extension AudioPlayerView {
                 audioPlayerManager.currentAudioTime += kMoveForward
                 audioPlayerManager.seekAudio(to: audioPlayerManager.currentAudioTime)
             } label: {
-                AppImageConstants.forwardTen
+                PlayerImageConstants.forwardTen
             }
             
             //  Forward Chapter
@@ -168,7 +134,7 @@ extension AudioPlayerView {
                 let newValue = chapterNumber + 1
                 chapterNumber = newValue >= maxChapters ? maxChapters : newValue
             } label: {
-                AppImageConstants.forwardEnd
+                PlayerImageConstants.forwardEnd
             }
         }
         .font(.title)
@@ -176,6 +142,6 @@ extension AudioPlayerView {
     }
 }
 
-//#Preview(traits: .sizeThatFitsLayout) {
-//    AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: BooksMock.book1AudioUrl))
-//}
+#Preview(traits: .sizeThatFitsLayout) {
+    AudioPlayerView(audioPlayerManager: AudioPlayerManager(audioUrl: nil), chapterNumber: .constant(0), maxChapters: 10)
+}

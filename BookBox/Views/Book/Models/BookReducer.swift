@@ -27,11 +27,11 @@ struct BookReducer {
     }
     
     enum Action {
-        //  MARK: To-Do: Actions need to be implemented when more technical detailes received
+        //  MARK: To-Do: Action needs to be implemented when more technical detailes received
     }
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        //  MARK: To-Do: Reduce need to be implemented when more technical detailes received
+        //  MARK: To-Do: Reduce needs to be implemented when more technical detailes received
     }
 }
 

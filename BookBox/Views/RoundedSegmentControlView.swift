@@ -9,6 +9,11 @@ import SwiftUI
 
 struct RoundedSegmentControlView: View {
     
+    private enum RoundedSegmentControlImages {
+        static let headPhones = Image(systemName: "headphones")
+        static let alignleft = Image(systemName: "text.alignleft")
+    }
+    
     @Binding var isLeftSelected: Bool
     
     var body: some View {
@@ -16,7 +21,7 @@ struct RoundedSegmentControlView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(Color.white)
-                    .frame(width: 100, height: 50)
+                    .frame(width: 110, height: 50)
                     .overlay(
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(Color.gray, lineWidth: 0.5)
@@ -34,7 +39,7 @@ struct RoundedSegmentControlView: View {
                             isLeftSelected = true
                         }
                     }) {
-                        AppImageConstants.headPhones
+                        RoundedSegmentControlImages.headPhones
                             .foregroundStyle(isLeftSelected ? .white : .black)
                             .frame(width: 35, height: 35)
                             .font(.title2)
@@ -45,7 +50,7 @@ struct RoundedSegmentControlView: View {
                             isLeftSelected = false
                         }
                     }) {
-                        AppImageConstants.alignleft
+                        RoundedSegmentControlImages.alignleft
                             .foregroundColor(isLeftSelected ? .black : .white)
                             .frame(width: 40, height: 40)
                             .font(.title2)

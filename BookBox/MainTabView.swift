@@ -1,5 +1,5 @@
 //
-//  BookTabView.swift
+//  MainTabView.swift
 //  BookBox
 //
 //  Created by Oleksandr Oliinyk on 07.08.2024.
@@ -8,11 +8,14 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct BookTabView: View {
+extension ViewStoreOf: Identifiable {}
+
+struct MainTabView: View {
+    
+    @State var isAudioTabShown = true
     
     private var store: [StoreOf<BookReducer>]
     private var viewStore: [ViewStoreOf<BookReducer>]
-    @State var isAudioTabShown = true
     
     init(store: [StoreOf<BookReducer>]) {
         self.store = store
@@ -27,7 +30,7 @@ struct BookTabView: View {
             audioTabView
                 .transition(.move(edge: .leading))
         } else {
-            BookReaderListView(chapters: viewStore[0].chapters)
+            readerTabView
                 .transition(.move(edge: .trailing))
         }
         
@@ -35,7 +38,7 @@ struct BookTabView: View {
     }
 }
 
-extension BookTabView {
+extension MainTabView {
     var audioTabView: some View {
         TabView {
             ForEach(viewStore) { bookViewStore in
@@ -44,14 +47,12 @@ extension BookTabView {
         }
         .tabViewStyle(PageTabViewStyle())
     }
+    
+    var readerTabView: some View {
+        BookReaderView(chapters: viewStore.first?.chapters ?? [])
+    }
 }
 
-extension ViewStoreOf: Identifiable {}
-
-//#Preview {
-//    BookTabView(store:
-//                        [Store(
-//                            initialState: BookReducer.State(
-//                                chapter: BookChapterReducer()),
-//                            reducer: { BookReducer() })])
-//}
+#Preview {
+    MainTabView(store:[Store(initialState: BookReducer.State(chapters: BooksMock.createBookChapters()), reducer: { BookReducer() })])
+}
