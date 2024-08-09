@@ -18,11 +18,10 @@ struct AudioPlayerView: View {
     @State private var playbackSpeed: Float = 1.0
     @State private var showAlert = false
     @State private var error: AudioPlayerManager.AudioError?
-    @StateObject private var audioPlayerManager: AudioPlayerManager
+    @StateObject var audioPlayerManager: AudioPlayerManager
     
-    init(audioPlayerManager: AudioPlayerManager) {
-        _audioPlayerManager = StateObject(wrappedValue: audioPlayerManager)
-    }
+    @Binding var chapterNumber: Int
+    var maxChapters: Int
     
     var body: some View {
         VStack(spacing: 20) {
@@ -73,6 +72,16 @@ struct AudioPlayerView: View {
         let seconds = Int(time) % 60
         return String(format: "%2d:%02d", minute, seconds)
     }
+    
+    mutating func incrementChapter() {
+        let value = chapterNumber + 1
+        chapterNumber = value > 10 ? 10 : value
+    }
+    
+    mutating func decrementChapter() {
+        let value = chapterNumber - 1
+        chapterNumber = value < 0 ? 0 : value
+    }
 }
 
 extension AudioPlayerView {
@@ -112,7 +121,8 @@ extension AudioPlayerView {
             //  Backward chapter
             
             Button {
-                audioPlayerManager.seekAudio(to: 0.0)
+                let newValue = chapterNumber - 1
+                chapterNumber = newValue < 0 ? 0 : newValue
             } label: {
                 AppImageConstants.backwardEnd
                     .font(.title)
@@ -153,9 +163,10 @@ extension AudioPlayerView {
                 AppImageConstants.forwardTen
             }
             
-            //  Forward end
+            //  Forward Chapter
             Button {
-                audioPlayerManager.seekAudio(to: audioPlayerManager.totalAudioTime)
+                let newValue = chapterNumber + 1
+                chapterNumber = newValue >= maxChapters ? maxChapters : newValue
             } label: {
                 AppImageConstants.forwardEnd
             }

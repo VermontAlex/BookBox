@@ -11,6 +11,7 @@ import ComposableArchitecture
 struct BookView: View {
     
     let book: ViewStoreOf<BookReducer>
+    @Binding var chapterNumber: Int
     
     var body: some View {
         VStack {
@@ -18,11 +19,14 @@ struct BookView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 300)
-            Text("Key point 2 of 10")
-                .foregroundStyle(Color.gray)
-                .font(.subheadline)
-                .bold()
-            Text("book.chapter")
+            if chapterNumber <= book.chapters.count && chapterNumber >= 0 {
+                Text("Key \(chapterNumber + 1) of \(book.chapters.count)")
+                    .foregroundStyle(Color.gray)
+                    .font(.subheadline)
+                    .bold()
+                
+                Text("\(book.chapters[chapterNumber].chapterTitle)")
+            }
         }
     }
 }

@@ -12,4 +12,5 @@ struct BookChapter: Identifiable {
     let chapterTitle: String
     let chapterDescription: String
     let chapterNumber: Int
+    let audioUrl: URL?
 }

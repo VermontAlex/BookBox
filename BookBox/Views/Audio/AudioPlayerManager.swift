@@ -19,7 +19,7 @@ class AudioPlayerManager: ObservableObject {
     @Published var currentAudioTime: TimeInterval = 0.0
     @Published var totalAudioTime: TimeInterval = 0.0
     
-    private var audioUrl: URL?
+    @Published var audioUrl: URL?
     private var audioPlayer: AVAudioPlayer?
     
     init(audioUrl: URL?) {
@@ -41,6 +41,13 @@ class AudioPlayerManager: ObservableObject {
         }
     }
     
+    func updateAudioUrl(_ newAudio: URL?) {
+        stopAudio()
+        self.audioUrl = newAudio
+        try? setUpAudio()
+        playAudio()
+    }
+    
     func playAudio() {
         guard !isPlaying else { return }
         audioPlayer?.play()
@@ -54,6 +61,7 @@ class AudioPlayerManager: ObservableObject {
     }
     
     func stopAudio() {
+        pauseAudio()
         audioPlayer?.stop()
         audioPlayer = nil
     }

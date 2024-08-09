@@ -39,7 +39,7 @@ extension BookTabView {
     var audioTabView: some View {
         TabView {
             ForEach(viewStore) { bookViewStore in
-                BookAudioView(book: bookViewStore)
+                BookAudioView(book: bookViewStore, chapterNumber: 0)
             }
         }
         .tabViewStyle(PageTabViewStyle())

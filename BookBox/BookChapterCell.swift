@@ -25,12 +25,12 @@ struct BookChapterCell: View {
 
 extension BookChapterCell {
     var detailView: some View {
-        Text("This is the new screen")
+        Text("Work in progress, here you will see whole chapter. Waiting soon")
             .font(.largeTitle)
             .padding()
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    BookChapterCell(bookChapter: BooksMock.chapter)
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    BookChapterCell(bookChapter: BooksMock.chapter)
+//}

@@ -14,12 +14,10 @@ struct BookReducer {
     struct State: Equatable {
         
         let id: String
-        let audioUrl: URL?
         let chapters: [BookChapter]
         
-        init(id: String = BooksMock.bookId1, audioUrl: URL? = BooksMock.book1AudioUrl, chapters: [BookChapter] = []) {
+        init(id: String = BooksMock.bookId1, chapters: [BookChapter] = []) {
             self.id = id
-            self.audioUrl = audioUrl
             self.chapters = chapters
         }
         

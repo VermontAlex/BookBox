@@ -24,6 +24,6 @@ struct BookReaderListView: View {
     }
 }
 
-#Preview {
-    BookReaderListView(chapters: [BooksMock.chapter])
-}
+//#Preview {
+//    BookReaderListView(chapters: [BooksMock.chapter])
+//}
