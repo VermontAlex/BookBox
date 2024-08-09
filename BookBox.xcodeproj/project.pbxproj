@@ -16,7 +16,7 @@
 		5620661B2C64C87B00AB7A3F /* BookChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620661A2C64C87B00AB7A3F /* BookChapterCell.swift */; };
 		56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B42C63A24200F1A12B /* BookBoxApp.swift */; };
 		56AB18B72C63A24200F1A12B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B62C63A24200F1A12B /* MainTabView.swift */; };
-		56AB18C62C63A24300F1A12B /* BookBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18C52C63A24300F1A12B /* BookBoxTests.swift */; };
+		56AB18C62C63A24300F1A12B /* BookBoxUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18C52C63A24300F1A12B /* BookBoxUnitTests.swift */; };
 		56AB19292C63CFA100F1A12B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */; };
 		56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */; };
 		56AB192B2C63CFA100F1A12B /* AudioHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* AudioHeaderView.swift */; };
@@ -36,13 +36,6 @@
 			remoteGlobalIDString = 56AB18B02C63A24200F1A12B;
 			remoteInfo = BookBox;
 		};
-		56AB18CC2C63A24300F1A12B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 56AB18A92C63A24200F1A12B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 56AB18B02C63A24200F1A12B;
-			remoteInfo = BookBox;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +49,7 @@
 		56AB18B42C63A24200F1A12B /* BookBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxApp.swift; sourceTree = "<group>"; };
 		56AB18B62C63A24200F1A12B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		56AB18C12C63A24300F1A12B /* BookBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56AB18C52C63A24300F1A12B /* BookBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxTests.swift; sourceTree = "<group>"; };
-		56AB18CB2C63A24300F1A12B /* BookBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AB18C52C63A24300F1A12B /* BookBoxUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxUnitTests.swift; sourceTree = "<group>"; };
 		56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		56AB19242C63CFA100F1A12B /* AudioHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioHeaderView.swift; sourceTree = "<group>"; };
@@ -79,13 +71,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		56AB18BE2C63A24300F1A12B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56AB18C82C63A24300F1A12B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -120,7 +105,7 @@
 			children = (
 				56AB18B32C63A24200F1A12B /* BookBox */,
 				56AB192F2C63E63D00F1A12B /* Resources */,
-				56AB18C42C63A24300F1A12B /* BookBoxTests */,
+				56AB18C42C63A24300F1A12B /* BookBoxUnitTests */,
 				56AB18B22C63A24200F1A12B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,7 +115,6 @@
 			children = (
 				56AB18B12C63A24200F1A12B /* BookBox.app */,
 				56AB18C12C63A24300F1A12B /* BookBoxTests.xctest */,
-				56AB18CB2C63A24300F1A12B /* BookBoxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,12 +130,12 @@
 			path = BookBox;
 			sourceTree = "<group>";
 		};
-		56AB18C42C63A24300F1A12B /* BookBoxTests */ = {
+		56AB18C42C63A24300F1A12B /* BookBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				56AB18C52C63A24300F1A12B /* BookBoxTests.swift */,
+				56AB18C52C63A24300F1A12B /* BookBoxUnitTests.swift */,
 			);
-			path = BookBoxTests;
+			path = BookBoxUnitTests;
 			sourceTree = "<group>";
 		};
 		56AB19212C63CFA100F1A12B /* Preview Content */ = {
@@ -275,24 +259,6 @@
 			productReference = 56AB18C12C63A24300F1A12B /* BookBoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		56AB18CA2C63A24300F1A12B /* BookBoxUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 56AB18DB2C63A24300F1A12B /* Build configuration list for PBXNativeTarget "BookBoxUITests" */;
-			buildPhases = (
-				56AB18C72C63A24300F1A12B /* Sources */,
-				56AB18C82C63A24300F1A12B /* Frameworks */,
-				56AB18C92C63A24300F1A12B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				56AB18CD2C63A24300F1A12B /* PBXTargetDependency */,
-			);
-			name = BookBoxUITests;
-			productName = BookBoxUITests;
-			productReference = 56AB18CB2C63A24300F1A12B /* BookBoxUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,10 +273,6 @@
 						CreatedOnToolsVersion = 15.3;
 					};
 					56AB18C02C63A24300F1A12B = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 56AB18B02C63A24200F1A12B;
-					};
-					56AB18CA2C63A24300F1A12B = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 56AB18B02C63A24200F1A12B;
 					};
@@ -334,7 +296,6 @@
 			targets = (
 				56AB18B02C63A24200F1A12B /* BookBox */,
 				56AB18C02C63A24300F1A12B /* BookBoxTests */,
-				56AB18CA2C63A24300F1A12B /* BookBoxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,13 +312,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		56AB18BF2C63A24300F1A12B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56AB18C92C63A24300F1A12B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -392,14 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AB18C62C63A24300F1A12B /* BookBoxTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56AB18C72C63A24300F1A12B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				56AB18C62C63A24300F1A12B /* BookBoxUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,11 +357,6 @@
 			isa = PBXTargetDependency;
 			target = 56AB18B02C63A24200F1A12B /* BookBox */;
 			targetProxy = 56AB18C22C63A24300F1A12B /* PBXContainerItemProxy */;
-		};
-		56AB18CD2C63A24300F1A12B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 56AB18B02C63A24200F1A12B /* BookBox */;
-			targetProxy = 56AB18CC2C63A24300F1A12B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -636,42 +578,6 @@
 			};
 			name = Release;
 		};
-		56AB18DC2C63A24300F1A12B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P53ZA2TH9W;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bookbox.BookBoxUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BookBox;
-			};
-			name = Debug;
-		};
-		56AB18DD2C63A24300F1A12B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P53ZA2TH9W;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bookbox.BookBoxUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BookBox;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -698,15 +604,6 @@
 			buildConfigurations = (
 				56AB18D92C63A24300F1A12B /* Debug */,
 				56AB18DA2C63A24300F1A12B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		56AB18DB2C63A24300F1A12B /* Build configuration list for PBXNativeTarget "BookBoxUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56AB18DC2C63A24300F1A12B /* Debug */,
-				56AB18DD2C63A24300F1A12B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
