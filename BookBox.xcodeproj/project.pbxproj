@@ -10,7 +10,6 @@
 		562065D12C648FBD00AB7A3F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 562065D02C648FBD00AB7A3F /* ComposableArchitecture */; };
 		562065DA2C64959700AB7A3F /* BooksMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562065D92C64959700AB7A3F /* BooksMock.swift */; };
 		562065DD2C64A72500AB7A3F /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562065DC2C64A72500AB7A3F /* AudioPlayerManager.swift */; };
-		5620660F2C64BEC500AB7A3F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5620660E2C64BEC500AB7A3F /* ComposableArchitecture */; };
 		562066132C64C51B00AB7A3F /* BookReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066122C64C51B00AB7A3F /* BookReaderView.swift */; };
 		562066172C64C66B00AB7A3F /* BookChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066162C64C66B00AB7A3F /* BookChapterView.swift */; };
 		562066192C64C73600AB7A3F /* BookChapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562066182C64C73600AB7A3F /* BookChapter.swift */; };
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5620660F2C64BEC500AB7A3F /* ComposableArchitecture in Frameworks */,
 				562065D12C648FBD00AB7A3F /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,13 +171,13 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
-		56AB19252C63CFA100F1A12B /* Book */ = {
+		56AB19252C63CFA100F1A12B /* Reader */ = {
 			isa = PBXGroup;
 			children = (
 				562066152C64C62A00AB7A3F /* BookReaderView */,
 				56FDD1322C660C5A0043606B /* Models */,
 			);
-			path = Book;
+			path = Reader;
 			sourceTree = "<group>";
 		};
 		56AB19262C63CFA100F1A12B /* Views */ = {
@@ -187,7 +185,7 @@
 			children = (
 				56FDD1352C6612520043606B /* MainTabView */,
 				56AB19232C63CFA100F1A12B /* Audio */,
-				56AB19252C63CFA100F1A12B /* Book */,
+				56AB19252C63CFA100F1A12B /* Reader */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,7 +252,6 @@
 			name = BookBox;
 			packageProductDependencies = (
 				562065D02C648FBD00AB7A3F /* ComposableArchitecture */,
-				5620660E2C64BEC500AB7A3F /* ComposableArchitecture */,
 			);
 			productName = BookBox;
 			productReference = 56AB18B12C63A24200F1A12B /* BookBox.app */;
@@ -329,7 +326,7 @@
 			);
 			mainGroup = 56AB18A82C63A24200F1A12B;
 			packageReferences = (
-				5620660D2C64BEC500AB7A3F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				56E1C7B42C66152B00D6F3F9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 56AB18B22C63A24200F1A12B /* Products */;
 			projectDirPath = "";
@@ -717,7 +714,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5620660D2C64BEC500AB7A3F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		56E1C7B42C66152B00D6F3F9 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
@@ -730,11 +727,6 @@
 /* Begin XCSwiftPackageProductDependency section */
 		562065D02C648FBD00AB7A3F /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ComposableArchitecture;
-		};
-		5620660E2C64BEC500AB7A3F /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5620660D2C64BEC500AB7A3F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
