@@ -18,8 +18,6 @@
 		56AB18B52C63A24200F1A12B /* BookBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B42C63A24200F1A12B /* BookBoxApp.swift */; };
 		56AB18B72C63A24200F1A12B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18B62C63A24200F1A12B /* MainTabView.swift */; };
 		56AB18C62C63A24300F1A12B /* BookBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18C52C63A24300F1A12B /* BookBoxTests.swift */; };
-		56AB18D02C63A24300F1A12B /* BookBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18CF2C63A24300F1A12B /* BookBoxUITests.swift */; };
-		56AB18D22C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB18D12C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift */; };
 		56AB19292C63CFA100F1A12B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */; };
 		56AB192A2C63CFA100F1A12B /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */; };
 		56AB192B2C63CFA100F1A12B /* AudioHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AB19242C63CFA100F1A12B /* AudioHeaderView.swift */; };
@@ -61,8 +59,6 @@
 		56AB18C12C63A24300F1A12B /* BookBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56AB18C52C63A24300F1A12B /* BookBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxTests.swift; sourceTree = "<group>"; };
 		56AB18CB2C63A24300F1A12B /* BookBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56AB18CF2C63A24300F1A12B /* BookBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxUITests.swift; sourceTree = "<group>"; };
-		56AB18D12C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56AB19202C63CFA100F1A12B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56AB19222C63CFA100F1A12B /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		56AB19242C63CFA100F1A12B /* AudioHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioHeaderView.swift; sourceTree = "<group>"; };
@@ -127,7 +123,6 @@
 				56AB18B32C63A24200F1A12B /* BookBox */,
 				56AB192F2C63E63D00F1A12B /* Resources */,
 				56AB18C42C63A24300F1A12B /* BookBoxTests */,
-				56AB18CE2C63A24300F1A12B /* BookBoxUITests */,
 				56AB18B22C63A24200F1A12B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,15 +154,6 @@
 				56AB18C52C63A24300F1A12B /* BookBoxTests.swift */,
 			);
 			path = BookBoxTests;
-			sourceTree = "<group>";
-		};
-		56AB18CE2C63A24300F1A12B /* BookBoxUITests */ = {
-			isa = PBXGroup;
-			children = (
-				56AB18CF2C63A24300F1A12B /* BookBoxUITests.swift */,
-				56AB18D12C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift */,
-			);
-			path = BookBoxUITests;
 			sourceTree = "<group>";
 		};
 		56AB19212C63CFA100F1A12B /* Preview Content */ = {
@@ -417,8 +403,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56AB18D02C63A24300F1A12B /* BookBoxUITests.swift in Sources */,
-				56AB18D22C63A24300F1A12B /* BookBoxUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
